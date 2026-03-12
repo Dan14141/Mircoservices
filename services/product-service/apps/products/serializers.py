@@ -18,8 +18,11 @@ class ProductSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Product
-        fields = ['id', 'name', 'description', 'price', 'category', 'category_name',
-            'stock_quantity', 'image_url', 'is_active', 'is_in_stock','created_at', 'updated_at']
+        fields = [
+            'id', 'name', 'description', 'price', 'category', 'category_name',
+            'stock_quantity', 'image_url', 'is_active', 'is_in_stock',
+            'created_at', 'updated_at'
+        ]
 
 class ProductDetailSerializer(ProductSerializer):
     category = CategorySerializer(read_only=True)
@@ -27,4 +30,7 @@ class ProductDetailSerializer(ProductSerializer):
 class ProductCreateUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ['name', 'description', 'price', 'category','stock_quantity', 'image_url', 'is_active']
+        fields = [
+            'name', 'description', 'price', 'category',
+            'stock_quantity', 'image_url', 'is_active'
+        ]
